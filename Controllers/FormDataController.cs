@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using WebApp_Exercise.Models;
+/// <summary>
+/// リスト3-3 
+/// フォームデータを取得するコントローラ
+/// </summary>
+[Route("Form")]
+public class FormDataController : Controller
+{
+    /// <summary>
+    /// HTML Formに入力された値を出力する
+    /// </summary>
+    /// <param name="form">入力データを保持するViewModel</param>
+    /// <returns></returns>
+    [HttpPost("Enter")]
+    public IActionResult InputData(SampleForm form)
+    {
+        return Content($"氏名:{form.Name} , 年齢:{form.Age}");
+    }
+}
