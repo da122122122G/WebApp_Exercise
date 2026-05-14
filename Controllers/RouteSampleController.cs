@@ -9,23 +9,27 @@ namespace WebApp_Sample.Controllers;
 /// リスト2-1
 /// ルーティング属性を使用しないコントローラ
 /// </summary>
+
+[Route("samples")]
 public class RouteSampleController : Controller
 {
     /// <summary>
     /// デフォルトアクション
     /// </summary>
     /// <returns></returns>
+    [HttpGet]
     public IActionResult Index()
     {
-        return Content("/RouteSample または /RouteSample/Index");
+        return Content("/samples");
     }
 
     /// <summary>
     /// SampleContentアクション
     /// </summary>
     /// <returns></returns>
+    [HttpPost("content")]
     public IActionResult SampleContent()
     {
-        return Content("/RouteSample/SampleContent");
+        return Content("/Samples/Content");
     }
 }
