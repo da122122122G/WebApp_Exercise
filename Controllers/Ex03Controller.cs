@@ -21,4 +21,16 @@ public class Ex03Controller : Controller
     {
         return Content("こんばんは。");
     }
+
+    [HttpGet("Lunch")]
+    public IActionResult Hello()
+    {
+        return Content("こんにちは。");
+    }
+
+    [HttpGet("night")]
+    public IActionResult GoodNight()
+    {
+        return Content("おやすみ");
+    }
 }
