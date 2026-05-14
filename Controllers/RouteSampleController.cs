@@ -32,4 +32,6 @@ public class RouteSampleController : Controller
     {
         return Content("/Samples/Content");
     }
+
+
 }
