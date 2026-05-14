@@ -59,7 +59,7 @@ public class HomeController : Controller
         };
         // オブジェクトをJSON文字列に
         string json = JsonSerializer.Serialize(product, options);
-        // MIMEタイプ指定してJSONレスポンスを返すシリアライズ
+        // MIMEタイプ指定してJSONレスポンスを返すシリアライズ(直列化、メモリ内の数字をそのまま復元する)
         return Content(json, "application/json");
     }
 }
