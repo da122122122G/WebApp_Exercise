@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebApp_Exercise.Models;
+
+namespace WebApp_Exercise.Controllers;
 /// <summary>
 /// リスト3-3 
 /// フォームデータを取得するコントローラ

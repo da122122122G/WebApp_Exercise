@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
+namespace WebApp_Exercise.Controllers;
 /// <summary>
 /// 演習-03 ルーティング属性を利用するコントローラを実装する
 /// </summary>

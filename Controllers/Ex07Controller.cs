@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+
+namespace WebApp_Exercise.Controllers;
 /// <summary>
 /// 演習-07 フォームデータを取得するコントローラを実装する
 /// </summary>

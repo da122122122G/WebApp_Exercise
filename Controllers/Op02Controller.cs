@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
+namespace WebApp_Exercise.Controllers;
+
 [Route("Option02")]
 public class Op02Controller : Controller
 {
