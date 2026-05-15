@@ -26,6 +26,10 @@ public class TagHelperFormController : Controller
     [HttpPost("Result")]
     public IActionResult Result(SampleForm form)
     {
+        if (!ModelState.IsValid)
+        {
+            return View("Enter", form);
+        }
         return View(form);
     }
 
