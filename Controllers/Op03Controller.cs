@@ -13,7 +13,7 @@ public class Op03Controller : Controller
     [HttpPost("Calc")]
     public IActionResult Calc(Op03Form form)
     {
-        switch (form.opt)
+        switch (form.SelectedOpt)
         {
             case 1:
                 var result = form.value1 + form.value2;

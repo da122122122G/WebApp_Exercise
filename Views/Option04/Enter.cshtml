@@ -1,0 +1,32 @@
+@using Microsoft.AspNetCore.Components.Web
+@using WebApp_Exercise.Models
+@using WebApp_Exercise.Controllers
+
+@model Op03Form
+@{
+    ViewData["Title"]="オプション演習-04 タグヘルパーを利用する";
+}
+<h2>@ViewData["Title"]</h2>
+<div class="d-flex justify-content-center">
+    <form asp-controller="Option04" asp-action="Result" method="post">
+        @Html.AntiForgeryToken()
+        <div class="mb-3">
+            <label asp-for="value1" class="form-label"></label>
+            <input asp-for="value1" class="form-control" />
+            <span asp-validation-for="value1" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="value2" class="form-label"></label>
+            <input asp-for="value2" class="form-control" />
+            <span asp-validation-for="value2" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="SelectedOpt" class="form-label"></label>
+            <select asp-for="SelectedOpt" asp-items="Model.OptList" class="form-control"></select>
+            <span asp-validation-for="SelectedOpt" class="text-danger"></span>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">計算</button>
+        </div>
+    </form>
+</div>

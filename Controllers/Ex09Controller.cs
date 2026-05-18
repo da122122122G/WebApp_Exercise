@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebApp_Exercise.Models;
 using WebApp_Exercise.Controllers;
+using System.Text.Json;
 
 namespace WebApp_Exercise.Controllers;
 /// <summary>
@@ -28,16 +29,26 @@ public class Ex09Controller : Controller
     /// [計算]ボタンクリックアクション
     /// </summary>
     /// <returns></returns>
-    [HttpPost("Result")]
-    public IActionResult Result(Exercise07Form form)
+    /// <summary>
+    /// 計算処理と結果画面表示アクション
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet("Result")]
+    public IActionResult Result()
     {
-        if (!ModelState.IsValid)
+        // TempDataからERxercise07Formを取り出す
+        string? json = (string)TempData["Exercise07Form"]!;
+        if (string.IsNullOrEmpty(json))
         {
-            return View("Enter", form);
+            // TempDataにExercise07Formが無い場合、入力画面表示にリダイレクトする
+            return RedirectToAction("Enter");
         }
-        form.Answer = form.Value1 + form.Value2;
+        // 存在する場合はデシリアライズする
+        var form = JsonSerializer.Deserialize<Exercise07Form>(json);
+        form!.Answer = form.Value1 + form.Value2;
         return View(form);
     }
+
 
     /// <summary>
     /// [戻る]ボタンクリックアクション
@@ -46,7 +57,27 @@ public class Ex09Controller : Controller
     [HttpGet("Back")]
     public IActionResult Back()
     {
-        var form = new Exercise07Form();
-        return View("Enter", form);
+        return RedirectToAction("Enter");
+    }
+
+    /// <summary>
+    /// [計算]ボタンクリックアクション
+    /// </summary>
+    /// <returns></returns>
+    [HttpPost("Calc")]
+    public IActionResult Calc(Exercise07Form form)
+    {
+        // バリデーションチェック
+        if (!ModelState.IsValid)
+        {
+            // バリデーションエラーの場合入力画面を表示する
+            return View("Enter", form);
+        }
+        // Exercise07Formをシリアライズする
+        var json = JsonSerializer.Serialize(form);
+        // TempDataに登録する
+        TempData["Exercise07Form"] = json;
+        // 計算結果を表示するResultへリダイレクトする
+        return RedirectToAction("Result");
     }
 }

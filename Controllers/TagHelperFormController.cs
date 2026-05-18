@@ -28,7 +28,7 @@ public class TagHelperFormController : Controller
     {
         if (!ModelState.IsValid)
         {
-            return View("Enter", form);
+            return RedirectToAction("Enter");
         }
         return View(form);
     }
