@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace WebApp_Exercise.Applications.Adapters;
+
 /// <summary>
 /// TDomainに指定されたドメインオブジェクトをTTargetに指定されたクラスに変換するインターフェイス
 /// </summary>
