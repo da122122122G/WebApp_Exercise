@@ -1,5 +1,7 @@
 using WebApp_Exercise.Applications.Services.Impls;
 using WebApp_Exercise.Presentations.Extensions;
+using WebApp_Exercise.Presentations.Middlewares;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.SettingDependencyInjection(builder.Configuration);
 
 var app = builder.Build();
+app.UseMiddleware<InternalExceptionLoggingMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
